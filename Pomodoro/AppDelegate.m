@@ -112,6 +112,7 @@
             
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self workAction:nil];
+    [self pauseAction:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -121,10 +122,12 @@
 - (IBAction)workAction:(NSButton *)sender
 {
     [self clockInMinutes:25];
+    [self resumeAction:nil];
 }
 - (IBAction)restAction:(NSButton *)sender
 {
     [self clockInMinutes:5];
+    [self resumeAction:nil];
 }
 
 - (void)clockInMinutes:(NSUInteger)minutes
