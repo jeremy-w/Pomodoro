@@ -119,6 +119,11 @@
     // Insert code here to tear down your application
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
+{
+    return YES;
+}
+
 - (IBAction)workAction:(NSButton *)sender
 {
     [self clockInMinutes:25];
