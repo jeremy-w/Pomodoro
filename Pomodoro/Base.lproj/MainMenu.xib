@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6157" systemVersion="14A237a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6157"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.9"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,8 +10,8 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="">
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -669,12 +669,77 @@
         <window title="Pomodoro" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
+            <rect key="contentRect" x="335" y="390" width="480" height="176"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="176"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wUC-Df-Lnt">
+                        <rect key="frame" x="377" y="13" width="89" height="32"/>
+                        <buttonCell key="cell" type="push" title="Resume" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KTf-E7-cqO">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="resumeAction:" target="Voe-Tx-rLC" id="nGi-cn-kPD"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M28-u6-9Gu">
+                        <rect key="frame" x="301" y="13" width="76" height="32"/>
+                        <buttonCell key="cell" type="push" title="Pause" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="77I-Jf-YpO">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="pauseAction:" target="Voe-Tx-rLC" id="at2-sv-wdB"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="urO-OW-JHq">
+                        <rect key="frame" x="18" y="49" width="444" height="107"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="25:29" id="dXU-Vs-boh">
+                            <font key="font" metaFont="system" size="90"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="self.clockText" id="pga-61-MaN"/>
+                        </connections>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqp-uP-9ul">
+                        <rect key="frame" x="14" y="13" width="72" height="32"/>
+                        <buttonCell key="cell" type="push" title="Work" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UsZ-hc-eBa">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="workAction:" target="Voe-Tx-rLC" id="v5n-LP-YOf"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUq-wJ-1iP">
+                        <rect key="frame" x="86" y="13" width="67" height="32"/>
+                        <buttonCell key="cell" type="push" title="Rest" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="afD-3n-isa">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="restAction:" target="Voe-Tx-rLC" id="Ih7-7R-2qN"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="wUC-Df-Lnt" secondAttribute="bottom" constant="20" id="Aaz-9D-ffM"/>
+                    <constraint firstItem="urO-OW-JHq" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="QGv-C4-XWM"/>
+                    <constraint firstAttribute="bottom" secondItem="M28-u6-9Gu" secondAttribute="bottom" constant="20" id="U3E-rG-XxI"/>
+                    <constraint firstAttribute="trailing" secondItem="wUC-Df-Lnt" secondAttribute="trailing" constant="20" id="dYr-Ht-Z8G"/>
+                    <constraint firstAttribute="trailing" secondItem="urO-OW-JHq" secondAttribute="trailing" constant="20" id="iPZ-Qz-Tes"/>
+                    <constraint firstItem="wUC-Df-Lnt" firstAttribute="leading" secondItem="M28-u6-9Gu" secondAttribute="trailing" constant="12" id="lkM-t0-3IE"/>
+                    <constraint firstItem="wUC-Df-Lnt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="urO-OW-JHq" secondAttribute="bottom" constant="8" id="nW4-ku-UV1"/>
+                    <constraint firstItem="urO-OW-JHq" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="ndZ-gV-4cN"/>
+                    <constraint firstItem="wUC-Df-Lnt" firstAttribute="leading" secondItem="M28-u6-9Gu" secondAttribute="trailing" constant="12" id="sFF-Ub-U0h"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="305" y="312.5"/>
         </window>
     </objects>
 </document>
