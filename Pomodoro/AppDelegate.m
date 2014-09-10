@@ -51,6 +51,8 @@
 
 - (void)resume
 {
+    if (!!_timer) return;
+
     [_startTimes addObject:[NSDate date]];
     /* Yup, this is a refcycle. Don't care just now, and gets broken during pause or when out of time. */
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(decrementSeconds) userInfo:nil repeats:YES];
