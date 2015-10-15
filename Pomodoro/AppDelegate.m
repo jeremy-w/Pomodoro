@@ -8,6 +8,55 @@
 
 #import "AppDelegate.h"
 
+@protocol Config
+@property NSTimeInterval workMinutes;
+@property NSTimeInterval restMinutes;
+@end
+
+
+@interface PlistConfig : NSObject <Config>
+- (instancetype)initWithURL:(NSURL *)fileURL NS_DESIGNATED_INITIALIZER;
+@end
+
+@implementation PlistConfig
+@synthesize workMinutes;
+@synthesize restMinutes;
+
+- (instancetype)initWithURL:(NSURL *)fileURL
+{
+    self = [super init];
+    if (!self) return nil;
+
+    NSDictionary *config = [NSDictionary dictionaryWithContentsOfURL:fileURL];
+    NSAssert(config, @"failed to load config dictionary: %@", fileURL);
+    self.workMinutes = [self.class intervalFromObject:config[@"WorkMinutes"]];
+    self.restMinutes = [self.class intervalFromObject:config[@"RestMinutes"]];
+    return self;
+}
+
+
++ (NSTimeInterval)intervalFromObject:(id)object
+{
+    NSAssert([object respondsToSelector:@selector(doubleValue)],
+             @"%s: %@ does not respond to doubleValue", __func__, object);
+    return [object doubleValue];
+}
+
+
+- (instancetype)init
+{
+    self = [self initWithURL:self.configURL];
+    return self;
+}
+
+
+- (NSURL *)configURL
+{
+    return [[NSBundle bundleForClass:self.class] URLForResource:@"config" withExtension:@"plist"];
+}
+@end
+
+
 @interface PMDTimer : NSObject
 - (instancetype)initWithSeconds:(NSTimeInterval)seconds;
 
@@ -103,6 +152,7 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+@property id<Config> config;
 
 @end
 
@@ -111,6 +161,7 @@
 }
             
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    self.config = [PlistConfig new];
     [self workAction:nil];
     [self pauseAction:nil];
 }
@@ -126,12 +177,12 @@
 
 - (IBAction)workAction:(NSButton *)sender
 {
-    [self clockInMinutes:25];
+    [self clockInMinutes:self.config.workMinutes];
     [self resumeAction:nil];
 }
 - (IBAction)restAction:(NSButton *)sender
 {
-    [self clockInMinutes:5];
+    [self clockInMinutes:self.config.restMinutes];
     [self resumeAction:nil];
 }
 
