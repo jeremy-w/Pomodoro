@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 
 @protocol Config
-@property NSTimeInterval workMinutes;
-@property NSTimeInterval restMinutes;
+@property(readonly) NSTimeInterval workMinutes;
+@property(readonly) NSTimeInterval restMinutes;
 @end
 
 
@@ -19,8 +19,8 @@
 @end
 
 @implementation PlistConfig
-@synthesize workMinutes;
-@synthesize restMinutes;
+@synthesize workMinutes = _workMinutes;
+@synthesize restMinutes = _restMinutes;
 
 - (instancetype)initWithURL:(NSURL *)fileURL
 {
@@ -29,8 +29,8 @@
 
     NSDictionary *config = [NSDictionary dictionaryWithContentsOfURL:fileURL];
     NSAssert(config, @"failed to load config dictionary: %@", fileURL);
-    self.workMinutes = [self.class intervalFromObject:config[@"WorkMinutes"]];
-    self.restMinutes = [self.class intervalFromObject:config[@"RestMinutes"]];
+    _workMinutes = [self.class intervalFromObject:config[@"WorkMinutes"]];
+    _restMinutes = [self.class intervalFromObject:config[@"RestMinutes"]];
     return self;
 }
 
