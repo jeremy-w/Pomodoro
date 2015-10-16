@@ -192,7 +192,7 @@
 }
             
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.config = [PlistConfig new];
+    self.config = [PreferencesConfig new];
     [self workAction:nil];
     [self pauseAction:nil];
 }
