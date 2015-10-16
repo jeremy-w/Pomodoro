@@ -182,6 +182,7 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+@property NSWindowController *preferencesController;
 @property id<Config> config;
 
 @end
@@ -203,6 +204,22 @@
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {
     return YES;
+}
+
+- (IBAction)showPreferences:(id)sender
+{
+    if (!self.preferencesController) {
+        NSWindowController *preferencesController = [[NSWindowController alloc]
+                                                     initWithWindowNibName:@"Preferences"];
+        NSAssert(preferencesController != nil, @"failed to create window controller");
+        self.preferencesController = preferencesController;
+    }
+    [self.window beginSheet:self.preferencesController.window completionHandler:NULL];
+}
+
+- (IBAction)dismissPreferences:(id)sender
+{
+    [self.window endSheet:self.window.attachedSheet];
 }
 
 - (IBAction)workAction:(NSButton *)sender
