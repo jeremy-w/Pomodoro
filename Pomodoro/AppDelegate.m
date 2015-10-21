@@ -268,9 +268,14 @@
     NSTimeInterval seconds = _timer ? _timer.seconds : 0;
     self.clockText = [self formatSeconds:seconds];
 
-    if (seconds <= 0) {
+    BOOL didTimerExpire = (seconds <= 0);
+    if (didTimerExpire) {
         [self notifyUser];
     }
+
+    NSDockTile *tile = [NSApplication sharedApplication].dockTile;
+    NSString *minutesLeft = [self.clockText componentsSeparatedByString:@":"][0];
+    tile.badgeLabel = (didTimerExpire ? nil : minutesLeft);
 }
 
 - (void)notifyUser
