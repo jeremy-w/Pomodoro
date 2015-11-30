@@ -7,11 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
-@protocol Config
-@property(readonly) NSTimeInterval workMinutes;
-@property(readonly) NSTimeInterval restMinutes;
-@end
+#import "Config.h"
 
 
 @interface PreferencesConfig : NSObject <Config>
