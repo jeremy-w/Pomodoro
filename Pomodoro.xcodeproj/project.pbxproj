@@ -69,6 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F155F941C0CDBD60022F4DD /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3F155F7D1C0CC89E0022F4DD /* Config.h */,
+				3F155F7E1C0CC9210022F4DD /* PreferencesConfig.h */,
+				3F155F7F1C0CC9290022F4DD /* PreferencesConfig.m */,
+				3F155F811C0CC99D0022F4DD /* PlistConfig.h */,
+				3F155F821C0CC9B80022F4DD /* PlistConfig.m */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		3FBEF3CD19BE2B5700744FB9 = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +106,7 @@
 				3FBEF3DE19BE2B5700744FB9 /* AppDelegate.m */,
 				3F155F841C0CCA0F0022F4DD /* PMDTimer.h */,
 				3F155F851C0CCA2F0022F4DD /* PMDTimer.m */,
-				3F155F7D1C0CC89E0022F4DD /* Config.h */,
-				3F155F7E1C0CC9210022F4DD /* PreferencesConfig.h */,
-				3F155F7F1C0CC9290022F4DD /* PreferencesConfig.m */,
-				3F155F811C0CC99D0022F4DD /* PlistConfig.h */,
-				3F155F821C0CC9B80022F4DD /* PlistConfig.m */,
+				3F155F941C0CDBD60022F4DD /* Configuration */,
 				3F097A021BCFFC6200F7BB2B /* config.plist */,
 				3FBEF3E019BE2B5700744FB9 /* Images.xcassets */,
 				3FBEF3E219BE2B5700744FB9 /* MainMenu.xib */,
