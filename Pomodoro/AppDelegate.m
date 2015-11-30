@@ -107,6 +107,7 @@
     tile.badgeLabel = (didTimerExpire ? nil : minutesLeft);
 }
 
+/// Called when the timer has expired.
 - (void)notifyUser
 {
     NSBeep();
@@ -115,6 +116,9 @@
     note.title = @"Time's up!";
     [[NSUserNotificationCenter defaultUserNotificationCenter]
      deliverNotification:note];
+
+    [[NSApplication sharedApplication]
+     requestUserAttention:NSCriticalRequest];
 }
 
 - (NSString *)formatSeconds:(NSTimeInterval)seconds
