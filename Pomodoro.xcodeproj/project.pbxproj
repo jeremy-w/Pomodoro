@@ -10,6 +10,7 @@
 		3F097A031BCFFC6200F7BB2B /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F097A021BCFFC6200F7BB2B /* config.plist */; };
 		3F155F801C0CC9290022F4DD /* PreferencesConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F155F7F1C0CC9290022F4DD /* PreferencesConfig.m */; };
 		3F155F831C0CC9B80022F4DD /* PlistConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F155F821C0CC9B80022F4DD /* PlistConfig.m */; };
+		3F155F861C0CCA2F0022F4DD /* PMDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F155F851C0CCA2F0022F4DD /* PMDTimer.m */; };
 		3F9E17C21BD13AF3000343E1 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F9E17C11BD13AF3000343E1 /* Preferences.xib */; };
 		3FBEF3DC19BE2B5700744FB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEF3DB19BE2B5700744FB9 /* main.m */; };
 		3FBEF3DF19BE2B5700744FB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBEF3DE19BE2B5700744FB9 /* AppDelegate.m */; };
@@ -35,6 +36,8 @@
 		3F155F7F1C0CC9290022F4DD /* PreferencesConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesConfig.m; sourceTree = "<group>"; };
 		3F155F811C0CC99D0022F4DD /* PlistConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistConfig.h; sourceTree = "<group>"; };
 		3F155F821C0CC9B80022F4DD /* PlistConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistConfig.m; sourceTree = "<group>"; };
+		3F155F841C0CCA0F0022F4DD /* PMDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDTimer.h; sourceTree = "<group>"; };
+		3F155F851C0CCA2F0022F4DD /* PMDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDTimer.m; sourceTree = "<group>"; };
 		3F9E17C11BD13AF3000343E1 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		3FBEF3D619BE2B5700744FB9 /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBEF3DA19BE2B5700744FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 			children = (
 				3FBEF3DD19BE2B5700744FB9 /* AppDelegate.h */,
 				3FBEF3DE19BE2B5700744FB9 /* AppDelegate.m */,
+				3F155F841C0CCA0F0022F4DD /* PMDTimer.h */,
+				3F155F851C0CCA2F0022F4DD /* PMDTimer.m */,
 				3F155F7D1C0CC89E0022F4DD /* Config.h */,
 				3F155F7E1C0CC9210022F4DD /* PreferencesConfig.h */,
 				3F155F7F1C0CC9290022F4DD /* PreferencesConfig.m */,
@@ -233,6 +238,7 @@
 				3FBEF3DF19BE2B5700744FB9 /* AppDelegate.m in Sources */,
 				3F155F801C0CC9290022F4DD /* PreferencesConfig.m in Sources */,
 				3F155F831C0CC9B80022F4DD /* PlistConfig.m in Sources */,
+				3F155F861C0CCA2F0022F4DD /* PMDTimer.m in Sources */,
 				3FBEF3DC19BE2B5700744FB9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
